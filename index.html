@@ -186,20 +186,34 @@
         <div class="contact-copy">
           <p class="eyebrow"><span></span> Sarees, brought to you / 06</p>
           <h2>Let’s plan<br /><em>your home visit.</em></h2>
-          <p>Message the merchant on Instagram to ask about a visit to your home. Share the styles you love and your preferred day to get the conversation started.</p>
+          <p>Tell us where and when you’d like us to visit. Send your preferences to the merchant, who will get in touch to confirm the details.</p>
           <a class="button button-primary" href="https://www.instagram.com/soupujithas/" target="_blank" rel="noopener noreferrer">Enquire on Instagram <span aria-hidden="true">↗</span></a>
           <p class="contact-handle">@soupujithas · Opens Instagram in a new tab</p>
         </div>
         <div class="contact-card">
           <p class="eyebrow">Your home-visit enquiry</p>
           <h3>A few details.<br /><em>A more personal visit.</em></h3>
-          <ul class="visit-checklist">
-            <li>Your area and preferred date</li>
-            <li>The occasion you’re shopping for</li>
-            <li>Colours, fabrics, and budget you have in mind</li>
-            <li>Any sarees you’ve spotted on our Instagram</li>
-          </ul>
-          <small>Your visit is arranged directly with the merchant. Please confirm availability, timing, and any charges before the visit.</small>
+          <p id="enquiry-privacy" class="form-help">Your details are emailed to the merchant to arrange your visit. Sending an enquiry does not confirm a booking.</p>
+          <form id="enquiry-form" aria-describedby="enquiry-privacy">
+            <fieldset id="enquiry-fields" disabled>
+              <legend class="sr-only">Home-visit details</legend>
+              <div class="field"><label for="visit-name">Your name</label><input id="visit-name" name="name" autocomplete="name" maxlength="80" required /></div>
+              <div class="field"><label for="visit-email">Email address</label><input id="visit-email" name="email" type="email" autocomplete="email" maxlength="254" required /><span class="field-hint">The merchant can reply to you here.</span></div>
+              <div class="field"><label for="visit-phone">Phone number</label><input id="visit-phone" name="phone" type="tel" autocomplete="tel" maxlength="30" required /></div>
+              <div class="field"><label for="visit-address">Visit address</label><textarea id="visit-address" name="address" autocomplete="street-address" rows="3" maxlength="500" placeholder="House / flat, street, area, city and PIN code" required></textarea></div>
+              <div class="field-pair">
+                <div class="field"><label for="visit-date">Preferred date</label><input id="visit-date" name="preferred_date" type="date" required /></div>
+                <div class="field"><label for="visit-time">Preferred time</label><input id="visit-time" name="preferred_time" type="time" required /></div>
+              </div>
+              <p class="field-hint">Choose a time at your visit address. Availability is confirmed by the merchant.</p>
+              <div class="field"><label for="visit-preferences">Saree preferences <span>(optional)</span></label><textarea id="visit-preferences" name="preferences" rows="3" maxlength="600" placeholder="Occasion, colours, fabrics, budget or an Instagram post you loved"></textarea></div>
+              <div class="form-trap" aria-hidden="true"><label for="visit-website">Leave this field empty</label><input id="visit-website" name="website" tabindex="-1" autocomplete="off" /></div>
+              <label class="consent-label"><input name="consent" type="checkbox" required /><span>I agree to share these details with the merchant so they can contact me about this visit.</span></label>
+              <button id="enquiry-submit" class="button form-submit" type="submit">Send visit enquiry <span aria-hidden="true">↗</span></button>
+            </fieldset>
+            <p id="enquiry-status" class="service-status" role="status" aria-atomic="true">Checking enquiry availability…</p>
+            <noscript><p class="form-help">Please enable JavaScript to use the form, or contact <a href="https://www.instagram.com/soupujithas/">@soupujithas on Instagram</a>.</p></noscript>
+          </form>
         </div>
       </section>
     </main>
@@ -209,6 +223,24 @@
       <div class="footer-links"><div><p class="footer-label">Explore</p><a href="#collection">Collection</a><a href="#story">Our story</a><a href="#home-visits">How home visits work</a></div><div><p class="footer-label">Connect</p><a href="https://www.instagram.com/soupujithas/" target="_blank" rel="noopener noreferrer">Instagram ↗</a><a href="#contact">Request a home visit ↗</a></div></div>
       <div class="footer-bottom"><span>© 2024 DrapesAtDoorstep</span><span>Made with care in India</span><a href="#top">Back to top ↑</a></div>
     </footer>
+    <button id="chat-launcher" class="chat-launcher" type="button" aria-haspopup="dialog" aria-controls="chat-dialog" aria-expanded="false" hidden>Questions? <span aria-hidden="true">✳</span></button>
+    <dialog id="chat-dialog" class="chat-dialog" aria-labelledby="chat-title" aria-describedby="chat-disclosure">
+      <div class="chat-header"><div><p class="eyebrow">A little help choosing</p><h2 id="chat-title">Drapes assistant</h2></div><button id="chat-close" type="button" aria-label="Close chat">×</button></div>
+      <p id="chat-disclosure" class="chat-disclosure">AI replies use OpenAI and may be incorrect. Keep addresses and contact details in the enquiry form. The merchant confirms all visits.</p>
+      <div class="chat-shortcuts" aria-label="Quick questions">
+        <button type="button" data-faq="visits">How do visits work?</button>
+        <button type="button" data-faq="area">Do you visit my area?</button>
+        <button type="button" data-faq="stock">Which sarees are available?</button>
+      </div>
+      <div id="chat-log" class="chat-log" role="log" aria-live="polite" aria-relevant="additions" aria-label="Conversation"><p class="chat-message"><strong>Quick help</strong><span>Explore a question above, or ask the AI assistant when chat is available. To request a visit, use the enquiry form.</span></p></div>
+      <p id="chat-status" class="chat-status" role="status" aria-atomic="true">Checking chat availability…</p>
+      <form id="chat-form">
+        <fieldset id="chat-fields" disabled><legend class="sr-only">Ask the AI assistant</legend><label class="sr-only" for="chat-input">Your question</label><input id="chat-input" name="message" maxlength="600" placeholder="Ask about home visits…" autocomplete="off" required /><button type="submit" aria-label="Send question">↑</button></fieldset>
+      </form>
+      <a class="chat-handoff" href="https://www.instagram.com/soupujithas/" target="_blank" rel="noopener noreferrer">Speak to the merchant on Instagram ↗</a>
+    </dialog>
+    <script src="config.js"></script>
     <script src="script.js"></script>
+    <script src="services.js"></script>
   </body>
 </html>
