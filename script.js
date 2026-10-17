@@ -25,12 +25,3 @@ filterButtons.forEach((button) => {
     });
   });
 });
-
-const newsletterForm = document.querySelector('.newsletter-form');
-const formMessage = document.querySelector('.form-message');
-
-newsletterForm?.addEventListener('submit', (event) => {
-  event.preventDefault();
-  formMessage.textContent = 'Thank you — you’re on the list.';
-  newsletterForm.reset();
-});
