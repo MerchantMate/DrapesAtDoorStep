@@ -27,6 +27,10 @@ Replace sample prices, product names, and CSS artwork with the merchant’s real
 
 Confirm service areas, visit availability, and any charges with the merchant before adding those details to the site. Add a verified WhatsApp number or email if the merchant wants another enquiry channel.
 
+## Design guidance
+
+Interface refinements use [Emil Kowalski’s design engineering guidance](https://github.com/emilkowalski/skills/blob/main/skills/emil-design-eng/SKILL.md) as a reference, without a runtime dependency or global skill installation. Keep the home-visit enquiry prominent and the collection easy to browse on phones. Use restrained interaction feedback, respect reduced-motion settings, and keep every action available to keyboard and touch users.
+
 ## GitHub Pages
 
 This repository can be published directly from the root folder using GitHub Pages. In the repository settings, choose **Pages → Deploy from a branch → main → / (root)**. The included `.nojekyll` file keeps the deployment simple.

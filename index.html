@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <a class="skip-link" href="#top">Skip to content</a>
     <div class="announcement-bar">
       <p>We bring the sarees. You shop from the comfort of home.</p>
       <a href="#contact">Request a home visit <span aria-hidden="true">↗</span></a>
@@ -35,7 +36,7 @@
       </nav>
     </header>
 
-    <main id="top">
+    <main id="top" tabindex="-1">
       <section class="hero section-shell">
         <div class="hero-copy">
           <p class="eyebrow"><span></span> Saree shopping, at your doorstep / 01</p>
@@ -91,14 +92,15 @@
           <p class="section-note">Get a feel for the styles you love, then ask the merchant which sarees are available to bring along for your home visit.</p>
         </div>
 
-        <div class="filter-row" aria-label="Filter collection">
-          <button class="filter-chip is-active" data-filter="all">All sarees <span>06</span></button>
-          <button class="filter-chip" data-filter="everyday">Everyday <span>02</span></button>
-          <button class="filter-chip" data-filter="festive">Festive <span>02</span></button>
-          <button class="filter-chip" data-filter="heirloom">Heirloom <span>02</span></button>
+        <div class="filter-row" role="group" aria-label="Filter collection">
+          <button type="button" class="filter-chip is-active" data-filter="all" aria-pressed="true" aria-controls="product-grid">All sarees <span>06</span></button>
+          <button type="button" class="filter-chip" data-filter="everyday" aria-pressed="false" aria-controls="product-grid">Everyday <span>02</span></button>
+          <button type="button" class="filter-chip" data-filter="festive" aria-pressed="false" aria-controls="product-grid">Festive <span>02</span></button>
+          <button type="button" class="filter-chip" data-filter="heirloom" aria-pressed="false" aria-controls="product-grid">Heirloom <span>02</span></button>
         </div>
+        <p class="sr-only" id="collection-status" role="status" aria-atomic="true">Showing all 6 sarees.</p>
 
-        <div class="product-grid">
+        <div class="product-grid" id="product-grid">
           <article class="product-card" data-category="everyday">
             <a class="product-visual visual-clay" href="#contact" aria-label="Ask about the Clay Rose saree">
               <span class="visual-code">AV / 001</span>
